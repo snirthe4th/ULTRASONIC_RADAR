@@ -9,17 +9,13 @@ const int echoPin = 10;
 long duration;
 float distance;  
 
-//const int joyCPin = 8;  // Button for toggling motor on/off
+
 
 Servo myservo;
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-bool lastButtonState = HIGH;  // set the last button state as High
-bool motorOn = false;  // Track whether the motor is on or off
 
 void setup() {
-  motorOn = false; //state the motor as off at the start
-  
   pinMode(buzzerPin, OUTPUT);
   pinMode(motorPin, OUTPUT);
   pinMode(trigPin, OUTPUT);    
@@ -32,12 +28,9 @@ void setup() {
   myservo.attach(9, 0, 180);  // attach the servo to pin 9 and set the angles to between 0 and 180
 }
 
-//void check();  // mention the check program 
 void motor();
 
 void loop() {
-  //check();  // Check button press and toggle motor
-  //Serial.println(motorOn); // serial print the state of the motor
   printd();
   buzzer();
   motor();
